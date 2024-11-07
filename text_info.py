@@ -1,25 +1,30 @@
-# Get the original file name
-file_name = "example_info.py"  # replace with the actual file name or ask for user input
+# Task: Open a file and calculate the total number of lines, words, and characters.
+
+# Instructions:
+# - get the file name from the user
+# - Read the file contents.
+# - Count how many lines, words, and characters are in the file.
+# - Print out the totals for each.
+
+# Get the file name from the user
+
+
+file_name = input("Enter the name of the file to analyze (including extension): ")
 
 try:
-    # Initialize counters
-    line_count = 0
-    word_count = 0
-    char_count = 0
-    
-    # Open the file and process each line
+    # Open the file and read its contents
     with open(file_name, 'r') as file:
-        for line in file:
-            line_count += 1
-            words = line.split()
-            word_count += len(words)
-            char_count += len(line)
-    
-    # Print the totals
+        lines = file.readlines()
+
+    # Count the total lines, words, and characters
+    line_count = len(lines)
+    word_count = sum(len(line.split()) for line in lines)
+    char_count = sum(len(line) for line in lines)
+
+    # Print the results
     print(f"Lines: {line_count}")
     print(f"Words: {word_count}")
     print(f"Characters: {char_count}")
+
 except FileNotFoundError:
-    print(f"The file {file_name} was not found.")
-except Exception as e:
-    print(f"An error occurred: {e}")
+    print("The specified file was not found. Please check the file name and try again.")
