@@ -1,5 +1,5 @@
 # Get the original file name
-file_name = "example.txt"  # replace with the actual file name or ask for user input
+file_name = "example_info.py"  # replace with the actual file name or ask for user input
 
 try:
     # Initialize counters
